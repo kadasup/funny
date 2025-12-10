@@ -1,13 +1,13 @@
 :root {
-    --bg-color: #2a0a0a;
-    --card-bg: rgba(40, 10, 10, 0.85);
-    --text-primary: #fff1f2;
-    --text-secondary: #fda4af;
-    --accent-color: #ef4444;
-    /* Red for Agree/Highlight */
-    --disagree-color: #525252;
-    /* Neutral Grey for Disagree to contrast with Red theme */
-    --border-color: rgba(239, 68, 68, 0.2);
+    --bg-color: #0f172a;
+    --card-bg: rgba(17, 24, 39, 0.85);
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --accent-color: #10b981;
+    /* Emerald Green for Agree */
+    --disagree-color: #f43f5e;
+    /* Rose Red for Disagree */
+    --border-color: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -19,9 +19,9 @@
 body {
     font-family: 'Noto Sans TC', sans-serif;
     background-color: var(--bg-color);
-    /* Premium Red Gradient */
+    /* New modern gradient background */
     background-image:
-        linear-gradient(to right bottom, #2a0a0a, #7f1d1d, #450a0a);
+        linear-gradient(to right bottom, #0f172a, #334155, #1e293b);
     color: var(--text-primary);
     min-height: 100vh;
     display: flex;
@@ -42,7 +42,7 @@ body {
     background: var(--card-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 24px;
     padding: 50px 40px;
     max-width: 550px;
@@ -62,7 +62,7 @@ body {
 h1 {
     font-size: 2.2rem;
     margin-bottom: 12px;
-    background: linear-gradient(to right, #ef4444, #f87171);
+    background: linear-gradient(to right, #34d399, #10b981);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -98,7 +98,7 @@ h1 {
     margin: 25px 0;
     padding: 20px;
     border-left: 4px solid var(--accent-color);
-    background: linear-gradient(90deg, rgba(239, 68, 68, 0.1) 0%, transparent 100%);
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
     border-radius: 0 12px 12px 0;
 }
 
@@ -135,17 +135,17 @@ h1 {
 
 .btn-agree {
     background: var(--accent-color);
-    color: #fff;
-    /* White text */
-    box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.3);
+    color: #064e3b;
+    /* Dark text on bright button */
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
 }
 
 .btn-agree:hover {
-    background: #dc2626;
-    /* Darker Red */
+    background: #059669;
+    /* Darker emerald */
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 20px 25px -5px rgba(220, 38, 38, 0.4);
+    box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.4);
 }
 
 .btn-agree:active {
@@ -161,12 +161,12 @@ h1 {
     position: relative;
     z-index: 9999;
     /* Ensure it stays on top */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px -1px rgba(244, 63, 94, 0.3);
 }
 
 .btn-disagree:hover {
-    background: #374151;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    background: #e11d48;
+    box-shadow: 0 10px 15px -3px rgba(244, 63, 94, 0.5);
 }
 
 /* Responsive Design */
@@ -243,7 +243,7 @@ h1 {
     text-align: center;
     max-width: 400px;
     border: 1px solid var(--accent-color);
-    box-shadow: 0 0 50px rgba(239, 68, 68, 0.3);
+    box-shadow: 0 0 50px rgba(59, 130, 246, 0.3);
     transform: scale(0.8);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
