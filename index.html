@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>員工自主加班意願調查表</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>員工自主加班意願申請</h1>
+                <p class="subtitle">Employee Voluntary Overtime Application</p>
+            </div>
+
+            <div class="content">
+                <p>親愛的同仁，您好：</p>
+                <p>公司近期業務蒸蒸日上，為了共同實現我們的偉大願景，我們誠摯地邀請您參與今晚的「星光專案」自主加班活動。</p>
+                <p class="highlight">「工作是生命的昇華，加班是靈魂的修煉。」</p>
+                <p>請確認您的意願：</p>
+            </div>
+
+            <div class="actions">
+                <button id="agreeBtn" class="btn btn-agree">我完全同意</button>
+                <button id="disagreeBtn" class="btn btn-disagree">殘忍拒絕</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal Overlay -->
+    <div id="successOverlay" class="overlay hidden">
+        <div class="modal">
+            <h2>太棒了！🎉</h2>
+            <p>公司就希望能有您這樣優秀的夥伴！</p>
+            <p>您的熱情我們收到了，今晚 12 點前請勿離開座位。</p>
+            <button onclick="location.reload()" class="btn btn-primary">好的，我會努力</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

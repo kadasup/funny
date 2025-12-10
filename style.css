@@ -1,0 +1,274 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: rgba(17, 24, 39, 0.85);
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --accent-color: #10b981;
+    /* Emerald Green for Agree */
+    --disagree-color: #f43f5e;
+    /* Rose Red for Disagree */
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: var(--bg-color);
+    /* New modern gradient background */
+    background-image:
+        linear-gradient(to right bottom, #0f172a, #334155, #1e293b);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Prevent scrollbars when button runs away */
+}
+
+.container {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 50px 40px;
+    max-width: 550px;
+    width: 100%;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+/* .card:hover removed to prevent confusing movement */
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    background: linear-gradient(to right, #34d399, #10b981);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.content {
+    margin-bottom: 45px;
+    line-height: 1.8;
+    color: #e2e8f0;
+    font-size: 1.05rem;
+}
+
+.content p {
+    margin-bottom: 15px;
+}
+
+.highlight {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    text-align: center;
+    color: #fff;
+    margin: 25px 0;
+    padding: 20px;
+    border-left: 4px solid var(--accent-color);
+    background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
+    border-radius: 0 12px 12px 0;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    /* Center them */
+    gap: 20px;
+    position: relative;
+    /* Context for button positioning if we decide to constrain it here, but we'll use body for running away */
+    height: auto;
+    min-height: 60px;
+    /* Pre-allocate space */
+}
+
+.btn {
+    padding: 14px 0;
+    /* Vertical padding */
+    border: none;
+    border-radius: 50px;
+    /* Pill shape */
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 180px;
+    /* Fixed width for consistency */
+    font-family: 'Noto Sans TC', sans-serif;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-agree {
+    background: var(--accent-color);
+    color: #064e3b;
+    /* Dark text on bright button */
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+}
+
+.btn-agree:hover {
+    background: #059669;
+    /* Darker emerald */
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.4);
+}
+
+.btn-agree:active {
+    transform: translateY(0);
+}
+
+.btn-disagree {
+    background: var(--disagree-color);
+    /* Make it opaque/solid */
+    color: white;
+    /* White text for contrast */
+    border: none;
+    position: relative;
+    z-index: 9999;
+    /* Ensure it stays on top */
+    box-shadow: 0 4px 6px -1px rgba(244, 63, 94, 0.3);
+}
+
+.btn-disagree:hover {
+    background: #e11d48;
+    box-shadow: 0 10px 15px -3px rgba(244, 63, 94, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        /* Full width on mobile */
+    }
+}
+
+/* Floating Animation */
+@keyframes floatScreen {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.floating-active .container {
+    animation: floatScreen 3s ease-in-out infinite;
+}
+
+/* Modals */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    /* Higher than button */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal {
+    background: var(--bg-color);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 0 50px rgba(59, 130, 246, 0.3);
+    transform: scale(0.8);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.overlay.visible .modal {
+    transform: scale(1);
+}
+
+.modal h2 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.modal p {
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
